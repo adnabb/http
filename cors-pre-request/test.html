@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CORS跨域</title>
+</head>
+<body>
+    Hi，CORS跨域了吗？<span id="answer"></span>
+</body>
+<script>
+    const span = document.getElementById('answer');
+
+    fetch('http://localhost:8088', {
+        method: 'GET',
+        headers: new Headers({
+            'My-Custom-Header': 'data'
+        }),
+    }).then((res) => {
+
+        if (res.status === 200 && res.statusText === 'OK') {
+            span.innerText = true;
+        } else {
+            span.innerText = false;
+        }
+    }).catch((err) => {
+        span.innerText = false;
+        console.error(err);
+    });
+</script>
+</html>
