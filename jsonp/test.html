@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSONP跨域</title>
+</head>
+<body>
+    Hi，JSONP跨域了吗？<span id="answer"></span>
+</body>
+<script>
+    const span = document.getElementById('answer');
+    const callback = function(data) {
+        if (data.result) {
+            span.innerText = true;
+        } else {
+            span.innerText = false;
+        }
+    }
+</script>
+<!-- jsonp本质 -->
+<!-- <script src="http://localhost:8088"></script> -->
+<script>
+    const script = document.createElement('script');
+    script.src = 'http://localhost:8088';
+    document.head.appendChild(script);
+</script>
+</html>
