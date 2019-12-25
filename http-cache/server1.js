@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
         const file = fs.readFileSync('script.js');
         res.writeHead(200, {
             'Content-Type': 'text/javascript',
-            'Cache-Control': 'no-cache, max-age=60',
+            'Cache-Control': 'max-age=60',
         })
         res.end(file);
     }
