@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTTP长连接</title>
+</head>
+
+<body>
+    Hi~This is HTTP Keep-Alive page.
+    <div id="container"></div>
+</body>
+<script>
+    getRepeatedImgByNum();
+
+    function getRepeatedImgByNum(num=10) {
+        for (let index = 0; index < num; index++) {
+            getImg();
+        }
+    }
+
+    function getImg() {
+        const div = document.getElementById('container');
+        const img = new Image(300);
+        img.src = `/getImg/${Math.random()}`;
+        div.appendChild(img);
+    }
+</script>
+
+</html>
