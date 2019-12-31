@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nginx</title>
+</head>
+
+<body>
+    Hi~This is a nginx page.
+    <div id="container">request pending...</div>
+</body>
+<script>
+    const div = document.querySelector('#container');
+
+    fetch('/data').then((res) => {
+        return res.text();
+    }).then((data) => {
+        div.innerText = data;
+    }).catch((err) => {
+        div.innerText = 'failed';
+        console.error(err);
+    });
+</script>
+
+</html>
