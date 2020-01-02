@@ -23,7 +23,8 @@ const server = http.createServer((req, res) => {
     if(req.url === '/data') {
         res.writeHead(200, {
             'Content-Type': 'text/plain',
-            'Cache-Control': 's-maxage=10',
+            'Cache-Control': 's-maxage=6000',
+            'Vary': 'X-Test-Vary',
         });
 
         wait(2).then(() => {
